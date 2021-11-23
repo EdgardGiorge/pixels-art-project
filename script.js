@@ -12,6 +12,11 @@ body.appendChild(main);
 const div0 = document.createElement('div');
 main.appendChild(div0);
 div0.id = 'color-palette';
+const button1 = document.createElement('button');
+main.appendChild(button1);
+button1.className = 'bt';
+button1.id = 'clear-board';
+button1.innerText = 'Limpar';
 const arraycss = ['color black', 'color blue', 'color green', 'color red'];
 for (let i = 0; i < arraycss.length; i += 1) { // criando as section's , Ref. Mentoria Joel 22/11/21 as 18:30
   const section = document.createElement('section');
@@ -42,3 +47,20 @@ function removeSelected(tiraSelected) {
   }
 }
 div0.addEventListener('click', removeSelected);
+function preenchePixel(tiraSelected) {
+  if (tiraSelected.target.id !== 'pixel-board') {
+    const paletaClicada = document.querySelector('.selected');
+    const eventoAtual = tiraSelected.target;
+    const corDeFundo = window.getComputedStyle(paletaClicada).backgroundColor;
+    eventoAtual.style.backgroundColor = corDeFundo;
+  }
+}
+section1.addEventListener('click', preenchePixel);
+// Consulta no CSS com getComputedStyle, trouxe a propeiedade pro JS Ref. https://www.w3schools.com/jsref/jsref_getcomputedstyle.asp
+function limpaPixel() {
+  const button = document.getElementsByTagName('button');
+  for (let i = 0; i < button.length; i += 1) {
+    button[i].style.backgroundColor = 'white';
+  }
+}
+button1.addEventListener('click', limpaPixel);
