@@ -33,3 +33,12 @@ for (let i = 0; i < 5; i += 1) { // criando os quadros
     button.className = 'pixel';
   }
 }
+div0.firstElementChild.classList.add('selected');
+function removeSelected(tiraSelected) {
+  if (tiraSelected.target.id !== 'color-palette') {
+    const paletaClicada = document.querySelector('.selected');
+    paletaClicada.classList.remove('selected');
+    tiraSelected.target.classList.add('selected');
+  }
+}
+div0.addEventListener('click', removeSelected);
