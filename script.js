@@ -17,6 +17,7 @@ main.appendChild(button1);
 button1.className = 'bt';
 button1.id = 'clear-board';
 button1.innerText = 'Limpar';
+
 const arraycss = ['color black', 'color blue', 'color green', 'color red'];
 for (let i = 0; i < arraycss.length; i += 1) { // criando as section's , Ref. Mentoria Joel 22/11/21 as 18:30
   const section = document.createElement('section');
@@ -24,6 +25,7 @@ for (let i = 0; i < arraycss.length; i += 1) { // criando as section's , Ref. Me
   section[i] = document.getElementsByTagName('section')[i];
   section.className = arraycss[i];
 }
+
 const section1 = document.createElement('section');
 main.appendChild(section1);
 section1.id = 'pixel-board';
@@ -37,8 +39,9 @@ for (let i = 0; i < 5; i += 1) { // criando os quadros
     button[i1] = document.getElementsByTagName('button')[i1];
     button.className = 'pixel';
   }
-}
+} /* Ref. Mentoria Joel 26/11/2021 */
 div0.firstElementChild.classList.add('selected');
+
 function removeSelected(tiraSelected) {
   if (tiraSelected.target.id !== 'color-palette') {
     const paletaClicada = document.querySelector('.selected');
@@ -47,6 +50,7 @@ function removeSelected(tiraSelected) {
   }
 }
 div0.addEventListener('click', removeSelected);
+
 function preenchePixel(tiraSelected) {
   if (tiraSelected.target.id !== 'pixel-board') {
     const paletaClicada = document.querySelector('.selected');
@@ -55,6 +59,7 @@ function preenchePixel(tiraSelected) {
     eventoAtual.style.backgroundColor = corDeFundo;
   }
 }
+
 section1.addEventListener('click', preenchePixel);
 // Consulta no CSS com getComputedStyle, trouxe a propeiedade pro JS Ref. https://www.w3schools.com/jsref/jsref_getcomputedstyle.asp
 function limpaPixel() {
